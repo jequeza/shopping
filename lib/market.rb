@@ -16,4 +16,14 @@ class Market
       vendor.name
     end
   end
+
+  def vendors_that_sell(item_name)
+    sellers = []
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item, amount|
+        sellers << vendor if item.name == item_name
+      end
+    end
+    sellers
+  end
 end
